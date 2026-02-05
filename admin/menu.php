@@ -16,9 +16,6 @@
         <li>
             <a href="index.php?page=komentar_tampil">Komentar</a>
         </li>
-        <li>
-            <a href="index.php?page=log_tampil">Log Aktivitas</a>
-        </li>
     </ul>
     
     <div class="sidebar-logout">
