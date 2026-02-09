@@ -20,28 +20,29 @@ if ($query_komen) {
     }
 }
 
-$query_log = mysqli_query($koneksi, "SELECT * FROM tb_log_aktivitas ORDER BY waktu DESC LIMIT 10");
+$query_log = mysqli_query($koneksi, "SELECT * FROM tb_log_aktivitas ORDER BY waktu DESC");
 ?>
 
-<div style="display: flex; gap: 40px; justify-content: center; margin-top: 30px; flex-wrap: wrap; max-width: 1400px; margin-left: auto; margin-right: auto; padding: 0 20px;">
-    <div style="background: white; padding: 50px 80px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center; flex: 1; min-width: 300px; max-width: 550px;">
-        <h6 style="font-size: 18px; margin-bottom: 15px; color: #666;">Merchandise</h6>
-        <h3 style="font-size: 48px; margin: 0; color: #11998e;"><?= $merch ?></h3>
-    </div>
+<div style="max-width: 1400px; margin: 15px auto 0; padding: 0 20px;">
+    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+        <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center; flex: 1; min-width: 300px;">
+            <h6 style="font-size: 18px; margin-bottom: 15px; color: #666;">Merchandise</h6>
+            <h3 style="font-size: 48px; margin: 0; color: #11998e;"><?= $merch ?></h3>
+        </div>
 
-    <div style="background: white; padding: 50px 80px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center; flex: 1; min-width: 300px; max-width: 550px;">
-        <h6 style="font-size: 18px; margin-bottom: 15px; color: #666;">Komentar</h6>
-        <h3 style="font-size: 48px; margin: 0; color: #11998e;"><?= $komen ?></h3>
+        <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center; flex: 1; min-width: 300px;">
+            <h6 style="font-size: 18px; margin-bottom: 15px; color: #666;">Komentar</h6>
+            <h3 style="font-size: 48px; margin: 0; color: #11998e;"><?= $komen ?></h3>
+        </div>
     </div>
 </div>
 
-<div style="max-width: 1400px; margin: 40px auto; padding: 0 20px;">
+<div style="max-width: 1400px; margin: 20px auto; padding: 0 20px;">
     <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <div style="margin-bottom: 20px;">
             <h4 style="margin: 0; color: #333; font-size: 20px;">Log Aktivitas Admin</h4>
-            <a href="index.php?page=log_tampil" style="color: #11998e; text-decoration: none; font-size: 14px;">Lihat Semua →</a>
         </div>
-        <div style="overflow-x: auto;">
+        <div style="overflow-x: auto; max-height: 270px; overflow-y: auto;">
             <table style="width: 100%; border-collapse: collapse;">
                 <thead>
                     <tr style="background: #f8f9fa;">

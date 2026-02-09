@@ -1,5 +1,11 @@
 <div class="sidebar-header">
-    <span class="halaman_admin-text">ADMIN</span>
+    <div class="admin-profile">
+        <svg class="profile-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
+            <path d="M5 20C5 16.134 8.134 13 12 13C15.866 13 19 16.134 19 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="halaman_admin-text"><?php echo $_SESSION['nama_admin']; ?></span>
+    </div>
 </div>
 
 <div class="nav-container">
