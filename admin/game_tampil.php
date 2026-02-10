@@ -8,7 +8,6 @@
     <thead>
         <tr>
             <th width="5%">No.</th>
-            <th>ID Game</th>
             <th>Judul Game</th>
             <th>Tanggal</th>
             <th>Deskripsi</th>
@@ -25,7 +24,6 @@
         {
             echo "<tr>";
             echo "<td align='center'>$no</td>";
-            echo "<td>$hasil[id_game]</td>";
             echo "<td>$hasil[judul_game]</td>";
             echo "<td>$hasil[tanggal_game]</td>";
             echo "<td>$hasil[detail_game]</td>";

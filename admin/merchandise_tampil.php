@@ -10,6 +10,7 @@
             <th width="5%">No.</th>
             <th>Judul</th>
             <th>Harga</th>
+            <th>Stock</th>
             <th>Deskripsi</th>
             <th>Foto</th>
             <th width="15%">Aksi</th>
@@ -26,6 +27,7 @@
             echo "<td align='center'>$no</td>";
             echo "<td>{$hasil['judul_merchandise']}</td>";
             echo "<td>Rp " . number_format($hasil['harga_merchandise'], 0, ',', '.') . "</td>";
+            echo "<td align='center'>{$hasil['stock_merchandise']}</td>";
             echo "<td>{$hasil['detail_merchandise']}</td>";
             echo "<td align='center'><img src='{$hasil['foto_merchandise']}' alt='' width='100' style='border-radius: 6px;'></td>";
             echo "<td align='center'>";

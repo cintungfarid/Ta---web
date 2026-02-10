@@ -5,15 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Admin - GameValen</title>
     <style>
-        :root {
-            --light-bg: #f5faf7;
-            --light-green: #e4f3e8;
-            --light-accent: #c5f9d4;
-            --light-hover: #b3f0c5;
-            --accent-green: #2d7a3e;
-            --dark-text: #2d3748;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -21,80 +12,74 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5faf7 0%, #e4f3e8 100%);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #11998e;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            padding: 20px;
         }
 
         .login-box {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px 80px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.25);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(76, 175, 80, 0.15);
+            background: white;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
             width: 100%;
-            max-width: 900px;
+            max-width: 400px;
         }
 
         .input-group {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         label {
             display: block;
-            margin-bottom: 8px;
-            color: var(--dark-text);
+            margin-bottom: 6px;
+            color: #555;
             font-weight: 500;
-            font-size: 18px;
+            font-size: 0.9rem;
         }
 
         input[type="text"],
         input[type="password"] {
             width: 100%;
-            padding: 16px;
-            border: 1px solid rgba(76, 175, 80, 0.3);
-            border-radius: 8px;
-            font-size: 18px;
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--dark-text);
+            padding: 9px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.95rem;
         }
 
         input[type="text"]:focus,
         input[type="password"]:focus {
             outline: none;
-            border-color: var(--accent-green);
-            background: rgba(255, 255, 255, 1);
-            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.15);
+            border-color: #11998e;
         }
 
         button {
             width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, #2d7a3e 0%, #4caf50 100%);
+            padding: 11px;
+            background: #11998e;
             color: white;
-            border: 1px solid #2d7a3e;
-            border-radius: 8px;
-            font-size: 20px;
-            font-weight: 600;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            font-weight: 500;
             cursor: pointer;
+            margin-top: 8px;
         }
 
         button:hover {
-            background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
-            border-color: #4caf50;
-            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+            background: #0d8073;
         }
 
         h2 {
             text-align: center;
-            color: var(--accent-green);
-            margin-bottom: 30px;
-            font-size: 32px;
-            font-weight: 700;
+            color: #333;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            font-weight: 600;
         }
     </style>
 </head>

@@ -15,17 +15,14 @@ if (isset($_REQUEST['id_komentar'])) {
     $nama_penulis = $komentar_edit['nama_penulis'];
 }
 ?>
-<h2 align="center">DATA KOMENTAR</h2>
-
 <form action="komentar_proses.php" method="POST" enctype="multipart/form-data">
+    <h2>DATA KOMENTAR</h2>
     <input type="hidden" name="status" value="<?php echo isset($_REQUEST['id_komentar']) ? 'edit' : 'tambah'; ?>">
 
     <table>
-        <tr>
-            <td>ID KOMENTAR</td>
-            <td>:</td>
-            <td><input type="text" maxlength="11" size="50" name="id_komentar" value="<?php echo @$komentar_edit['id_komentar']; ?>" <?php echo isset($_REQUEST['id_komentar']) ? 'readonly' : ''; ?> required></td>
-        </tr>
+        <?php if (isset($_REQUEST['id_komentar'])): ?>
+        <input type="hidden" name="id_komentar" value="<?php echo $komentar_edit['id_komentar']; ?>">
+        <?php endif; ?>
 
         <tr>
             <td>NAMA PENULIS</td>
@@ -43,14 +40,10 @@ if (isset($_REQUEST['id_komentar'])) {
        </tr>
 
         <tr>
-           <td>DESKRIPSI BERITA</td>
+           <td>DESKRIPSI KOMENTAR</td>
            <td>:</td>
-           <td><textarea style="width:300px; height:100px;" name="detail_komentar"> <?php echo @$berita_edit['detail_komentar']; ?></textarea></td>
+           <td><textarea name="detail_komentar"><?php echo @$komentar_edit['detail_komentar']; ?></textarea></td>
        </tr>
-
-       <tr>
-             </td>
-        </tr>
      
         <tr>
             <td colspan="3" align="center">

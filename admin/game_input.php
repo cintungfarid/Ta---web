@@ -16,17 +16,14 @@ if (isset($_REQUEST['id_game'])) {
     $judul_game = $game_edit['judul_game'];
 }
 ?>
-<h2 align="center">DATA GAME</h2>
-
 <form action="game_proses.php" method="POST" enctype="multipart/form-data">
+    <h2>DATA GAME</h2>
     <input type="hidden" name="status" value="<?php echo isset($_REQUEST['id_game']) ? 'edit' : 'tambah'; ?>">
 
     <table>
-        <tr>
-            <td>ID GAME</td>
-            <td>:</td>
-            <td><input type="text" maxlength="11" size="50" name="id_game" value="<?php echo @$game_edit['id_game']; ?>" <?php echo isset($_REQUEST['id_game']) ? 'readonly' : ''; ?> required></td>
-        </tr>
+        <?php if (isset($_REQUEST['id_game'])): ?>
+        <input type="hidden" name="id_game" value="<?php echo $game_edit['id_game']; ?>">
+        <?php endif; ?>
 
         <tr>
             <td>JUDUL GAME</td>
@@ -46,7 +43,7 @@ if (isset($_REQUEST['id_game'])) {
         <tr>
            <td>DESKRIPSI GAME</td>
            <td>:</td>
-           <td><textarea style="width:300px; height:100px;" name="detail_game"> <?php echo @$game_edit['detail_game']; ?></textarea></td>
+           <td><textarea name="detail_game"><?php echo @$game_edit['detail_game']; ?></textarea></td>
        </tr>
 
        <tr>
@@ -56,20 +53,13 @@ if (isset($_REQUEST['id_game'])) {
             <?php
                 if(isset($_REQUEST['id_game']))
                 {
-                    echo "<img src='$game_edit[foto_game]' width=100 height=100>";
+                    echo "<div style='margin-bottom: 10px;'>";
+                    echo "<img src='$game_edit[foto_game]' width='100' height='100'>";
+                    echo "<div style='font-size: 0.85rem; color: #777; margin-top: 5px;'>Upload foto baru untuk mengganti</div>";
+                    echo "</div>";
                 }
             ?>
-            </br>
             <input type="file" name="foto_game">
-            <?php
-                if(isset($_REQUEST['id_game']))
-                {
-                     ?>
-                        </br>  
-                        <input type="checkbox" name="centang" value="1">Centang jika ingin ganti foto 
-                     <?php    
-                }
-            ?>
              </td>
         </tr>
      

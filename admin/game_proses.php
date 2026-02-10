@@ -7,7 +7,6 @@ $status = $_REQUEST['status'];
 
 switch ($status) {
     case 'tambah':
-        $id_game = $_REQUEST['id_game'];
         $judul_game = $_REQUEST['judul_game'];
         $tanggal_game =$_REQUEST['tanggal_game'];
         $detail_game = $_REQUEST['detail_game'];
@@ -17,14 +16,14 @@ switch ($status) {
         move_uploaded_file($asal, $simpan_gambar);
 
         $game_input = mysqli_query($koneksi,
-        "INSERT INTO tb_game (id_game, judul_game, tanggal_game, detail_game, foto_game ) 
-        VALUES ('$id_game','$judul_game','$tanggal_game','$detail_game','$simpan_gambar')");
+        "INSERT INTO tb_game (judul_game, tanggal_game, detail_game, foto_game ) 
+        VALUES ('$judul_game','$tanggal_game','$detail_game','$simpan_gambar')");
 
         if($game_input){
             catat_aktivitas($koneksi, $_SESSION['nama_admin'], "Menambah game: $judul_game");
-            echo"<script>alert('INPUT BERHASIL'); window.location='index.php?page=game_tampil';</script>";
+            echo"<script>window.location='index.php?page=game_tampil';</script>";
         } else {
-            echo"<script>alert('INPUT GAGAL'); window.location='index.php?page=game_tampil';</script>";
+            echo"<script>window.location='index.php?page=game_tampil';</script>";
         }
     break;
 
@@ -34,9 +33,7 @@ switch ($status) {
         $tanggal_game = $_REQUEST['tanggal_game'];
         $detail_game = $_REQUEST['detail_game'];
 
-        $centang = isset($_REQUEST['centang']) ? $_REQUEST['centang'] : 0;
-
-        if($centang == '1'){
+        if(!empty($_FILES['foto_game']['name'])){
             $asal = $_FILES['foto_game']['tmp_name'];
             $simpan_gambar = "../uploads/".$_FILES['foto_game']['name'];
             move_uploaded_file($asal, $simpan_gambar);
@@ -51,9 +48,9 @@ switch ($status) {
 
         if($game_edit){
             catat_aktivitas($koneksi, $_SESSION['nama_admin'], "Mengedit game: $judul_game");
-            echo"<script>alert('UPDATE BERHASIL'); window.location='index.php?page=game_tampil';</script>";
+            echo"<script>window.location='index.php?page=game_tampil';</script>";
         } else {
-            echo"<script>alert('UPDATE GAGAL'); window.location='index.php?page=game_tampil';</script>";
+            echo"<script>window.location='index.php?page=game_tampil';</script>";
         }
     break;
 
