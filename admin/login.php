@@ -61,7 +61,6 @@
             font-size: 18px;
             background: rgba(255, 255, 255, 0.9);
             color: var(--dark-text);
-            transition: all 0.3s ease;
         }
 
         input[type="text"]:focus,
@@ -82,13 +81,11 @@
             font-size: 20px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
         }
 
         button:hover {
             background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
             border-color: #4caf50;
-            transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
         }
 

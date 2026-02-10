@@ -31,28 +31,58 @@ body {
 
 .sidebar-header {
     padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(56, 239, 125, 0.15);
-    border-bottom: 2px solid #38ef7d;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .admin-profile {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: 15px;
+}
+
+.profile-avatar {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.profile-avatar:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 .profile-icon {
     color: #ffffff;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-    transition: transform 0.3s ease;
 }
 
-.profile-icon:hover {
-    transform: scale(1.1);
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.admin-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.admin-role {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 400;
 }
 
 #kiri span.halaman_admin-text {
@@ -84,7 +114,6 @@ body {
     padding: 15px 25px;
     color: #d4f4ed;
     text-decoration: none;
-    transition: 0.3s;
     border-left: 4px solid transparent;
 }
 
@@ -109,13 +138,11 @@ body {
     text-decoration: none;
     border-radius: 8px;
     font-weight: 500;
-    transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .logout-btn-sidebar:hover {
     background: rgba(255, 255, 255, 0.25);
-    transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
@@ -185,12 +212,10 @@ body {
     border-radius: 5px;
     text-decoration: none;
     font-weight: 500;
-    transition: all 0.3s ease;
 }
 
 .content-header .logout-btn:hover {
     background: #c0392b;
-    transform: translateY(-1px);
 }
 
 .content-body {
@@ -250,13 +275,11 @@ table td {
 }
 
 table tbody tr {
-    transition: all 0.2s ease;
     background: white;
 }
 
 table tbody tr:hover {
     background: #f0fdf9;
-    transform: scale(1.01);
     box-shadow: 0 2px 12px rgba(17, 153, 142, 0.15);
 }
 
@@ -271,7 +294,6 @@ table tbody tr:last-child td {
     border-radius: 5px;
     display: inline-block;
     font-weight: bold;
-    transition: all 0.3s ease;
     border: none;
     cursor: pointer;
 }
@@ -291,7 +313,6 @@ table tbody tr:last-child td {
 
 .btn-add:hover, .btn-tambah:hover { 
     background: #0d8073;
-    transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(17, 153, 142, 0.4);
 }
 
@@ -303,7 +324,6 @@ table tbody tr:last-child td {
 
 .btn-edit:hover {
     background: #2980b9;
-    transform: translateY(-1px);
     box-shadow: 0 2px 6px rgba(52, 152, 219, 0.4);
 }
 
@@ -314,7 +334,6 @@ table tbody tr:last-child td {
 
 .btn-delete:hover, .btn-hapus:hover {
     background: #c0392b;
-    transform: translateY(-1px);
     box-shadow: 0 2px 6px rgba(231, 76, 60, 0.4);
 }
 
@@ -333,11 +352,9 @@ table tbody tr:last-child td {
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
 }
 
 .stat-card:hover {
-    transform: translateY(-5px);
     box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
