@@ -2,7 +2,6 @@
     <thead>
         <tr>
             <th width="5%">No.</th>
-            <th width="10%">ID Komentar</th>
             <th>Nama Penulis</th>
             <th>Tanggal</th>
             <th>Komentar</th>
@@ -18,7 +17,6 @@
         {
             echo "<tr>";
             echo "<td align='center'>$no</td>";
-            echo "<td>$hasil[id_komentar]</td>";
             echo "<td>$hasil[nama_penulis]</td>";
             echo "<td>$hasil[tanggal_komentar]</td>";
             echo "<td>$hasil[detail_komentar]</td>";
