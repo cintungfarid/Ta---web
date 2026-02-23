@@ -15,7 +15,7 @@ switch ($status) {
         $asal = $_FILES['foto_merchandise']['tmp_name'];
         $nama_file = $_FILES['foto_merchandise']['name'];
         $simpan_gambar_path = "../uploads/".$nama_file;
-        $simpan_gambar_db = "uploads/".$nama_file;
+        $simpan_gambar_db = "backend/uploads/".$nama_file;
         move_uploaded_file($asal, $simpan_gambar_path);
 
         $merchandise_input = mysqli_query($koneksi, 
@@ -41,7 +41,7 @@ switch ($status) {
             $asal = $_FILES['foto_merchandise']['tmp_name'];
             $nama_file = $_FILES['foto_merchandise']['name'];
             $simpan_gambar_path = "../uploads/".$nama_file;
-            $simpan_gambar_db = "uploads/".$nama_file;
+            $simpan_gambar_db = "backend/uploads/".$nama_file;
             move_uploaded_file($asal, $simpan_gambar_path);
         } else {
             $data = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT foto_merchandise FROM tb_merchandise WHERE id_merchandise='$id_merchandise'"));

@@ -55,8 +55,8 @@ $query_log = mysqli_query($koneksi, "SELECT * FROM tb_log_aktivitas ORDER BY wak
                 <tbody>
                     <?php 
                     $no = 1;
-                    if(mysqli_num_rows($query_log) > 0):
-                        while($data = mysqli_fetch_array($query_log)): 
+                    if (mysqli_num_rows($query_log) > 0):
+                        while ($data = mysqli_fetch_array($query_log)): 
                     ?>
                     <tr style="border-bottom: 1px solid #dee2e6;">
                         <td style="padding: 12px;"><?= $no++ ?></td>

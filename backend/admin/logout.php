@@ -12,16 +12,11 @@ session_destroy();
 <head>
     <meta charset="UTF-8">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/auth.js"></script>
 </head>
 <body>
 <script>
-    Swal.fire({
-        icon: 'success',
-        title: 'Logout Berhasil',
-        confirmButtonText: 'OK'
-    }).then(() => {
-        window.location='index.php';
-    });
+    showAlert('success', 'Logout Berhasil', '', 'index.php');
 </script>
 </body>
 </html>
