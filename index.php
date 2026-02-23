@@ -13,14 +13,14 @@
     <nav class="navbar">
         <div class="container">
             <div class="nav-logo">
-                <h2>TIMUN MAS</h2>
+                <img src="asset/Teks paragraf Anda (2).png" alt="Logo Pelarian Timun Mas">
             </div>
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#game">Game</a></li>
                 <li><a href="#merchandise">Merchandise</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact">Coment</a></li>
             </ul>
         </div>
     </nav>
@@ -28,23 +28,24 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <div class="hero-logo">
-                <i class="fas fa-dice-d20"></i>
+                <img src="asset/Teks paragraf Anda (2).png" alt="Logo Timun Mas">
             </div>
             <h1 class="hero-title">PELARIAN TIMUN MAS</h1>
-            <p class="hero-description">Petualangan seru dalam dunia board game tradisional Indonesia. Bantu Timun Mas melarikan diri dari raksasa jahat!</p>
+            <p class="hero-description">Petualangan seru dalam dunia board game. Bantu Timun Mas melarikan diri kejaran sang Buto Ijo!</p>
         </div>
     </section>
 
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">About Developer</h2>
+            <h2 class="section-title">About</h2>
             <div class="about-card">
                 <div class="about-image">
-                    <i class="fas fa-user-circle"></i>
+                    <img src="asset/WhatsApp Image 2026-02-02 at 11.19.54.jpeg" alt="Valensia Chiko Varianto">
                 </div>
                 <div class="about-content">
-                    <h3>Tim Pengembang Timun Mas</h3>
-                    <p>Kami adalah tim developer yang bersemangat menciptakan board game edukatif berbasis cerita rakyat Indonesia. Misi kami adalah melestarikan budaya melalui permainan yang menyenangkan dan mendidik untuk segala usia.</p>
+                    <h3>VALENSIA CHIKO VARIANTO</h3>
+                    <p>Tentang:</p>
+                    <p>Saya adalah pembuat Board Game dengan tema "Pelarian Timun Mas"</p>
                 </div>
             </div>
         </div>
@@ -52,32 +53,19 @@
 
     <section id="game" class="game">
         <div class="container">
-            <h2 class="section-title">Our Games</h2>
+            <h2 class="section-title">Game</h2>
             <div class="game-grid">
-                <?php
-                $game_query = mysqli_query($koneksi, "SELECT * FROM tb_game ORDER BY tanggal_game DESC");
-                if(mysqli_num_rows($game_query) > 0) {
-                    while($game = mysqli_fetch_array($game_query)) {
-                        echo "<div class='game-card'>";
-                        echo "<div class='game-image'>";
-                        if(!empty($game['foto_game'])) {
-                            echo "<img src='" . $game['foto_game'] . "' alt='" . htmlspecialchars($game['judul_game']) . "'>";
-                        } else {
-                            echo "<div class='game-placeholder'><i class='fas fa-gamepad'></i></div>";
-                        }
-                        echo "</div>";
-                        echo "<div class='game-content'>";
-                        echo "<h3>" . htmlspecialchars($game['judul_game']) . "</h3>";
-                        echo "<p class='game-date'><i class='far fa-calendar'></i> " . date('d M Y', strtotime($game['tanggal_game'])) . "</p>";
-                        echo "<p class='game-desc'>" . nl2br(htmlspecialchars($game['detail_game'])) . "</p>";
-                        echo "<button class='btn btn-primary' onclick='showGameDetail(" . $game['id_game'] . ")'>Detail Game</button>";
-                        echo "</div>";
-                        echo "</div>";
-                    }
-                } else {
-                    echo "<p class='no-data'>Belum ada game tersedia.</p>";
-                }
-                ?>
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="asset/Teks paragraf Anda (2).png" alt="Pelarian Timun Mas">
+                    </div>
+                    <div class="game-content">
+                        <h3>Pelarian Timun Mas</h3>
+                        <p class="game-date"><i class="fas fa-users"></i> 2-4 Pemain | <i class="far fa-clock"></i> 30-45 Menit</p>
+                        <p class="game-desc">Board game petualangan yang menceritakan kisah klasik Indonesia. Bantu Timun Mas melarikan diri dari kejaran Buto Ijo menggunakan item-item magis seperti terasi, garam, jarum, dan mentimun. Pemain pertama yang mencapai tempat aman adalah pemenangnya!</p>
+                        <a href="cara_bermain.php" class="btn btn-primary">Cara Bermain</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -90,19 +78,28 @@
                 $merch_query = mysqli_query($koneksi, "SELECT * FROM tb_merchandise WHERE stock_merchandise > 0 ORDER BY id_merchandise DESC");
                 if(mysqli_num_rows($merch_query) > 0) {
                     while($merch = mysqli_fetch_array($merch_query)) {
+                        $nama_produk = htmlspecialchars($merch['judul_merchandise']);
+                        $harga = number_format($merch['harga_merchandise'], 0, ',', '.');
+                        $stock = $merch['stock_merchandise'];
+                        
+                        $pesan_wa = "Halo, saya tertarik membeli produk *" . $nama_produk . "* dengan harga Rp " . $harga . ". Apakah masih tersedia?";
+                        $pesan_wa_encoded = urlencode($pesan_wa);
+                        $nomor_wa = "6282131266756";
+                        $link_wa = "https://wa.me/" . $nomor_wa . "?text=" . $pesan_wa_encoded;
+                        
                         echo "<div class='merch-card'>";
                         echo "<div class='merch-image'>";
-                        if(!empty($merch['foto_merchandise'])) {
-                            echo "<img src='" . $merch['foto_merchandise'] . "' alt='" . htmlspecialchars($merch['judul_merchandise']) . "'>";
+                        if(!empty($merch['foto_merchandise']) && file_exists($merch['foto_merchandise'])) {
+                            echo "<img src='" . htmlspecialchars($merch['foto_merchandise']) . "' alt='" . $nama_produk . "'>";
                         } else {
                             echo "<div class='merch-placeholder'><i class='fas fa-tshirt'></i></div>";
                         }
                         echo "</div>";
                         echo "<div class='merch-content'>";
-                        echo "<h3>" . htmlspecialchars($merch['judul_merchandise']) . "</h3>";
-                        echo "<p class='merch-price'>Rp " . number_format($merch['harga_merchandise'], 0, ',', '.') . "</p>";
-                        echo "<p class='merch-stock'>Stock: " . $merch['stock_merchandise'] . "</p>";
-                        echo "<button class='btn btn-success'>Beli Sekarang</button>";
+                        echo "<h3>" . $nama_produk . "</h3>";
+                        echo "<p class='merch-price'>Rp " . $harga . "</p>";
+                        echo "<p class='merch-stock'>Stock: " . $stock . "</p>";
+                        echo "<a href='" . $link_wa . "' target='_blank' class='btn btn-success'><i class='fab fa-whatsapp'></i> Beli Sekarang</a>";
                         echo "</div>";
                         echo "</div>";
                     }
@@ -181,10 +178,6 @@
                 }
             });
         });
-
-        function showGameDetail(gameId) {
-            alert('Detail game akan ditampilkan. ID: ' + gameId);
-        }
     </script>
 
 </body>

@@ -58,7 +58,7 @@ if (isset($_REQUEST['id_merchandise'])) {
                 if(isset($_REQUEST['id_merchandise']))
                 {
                     echo "<div style='margin-bottom: 10px;'>";
-                    echo "<img src='$merchandise_edit[foto_merchandise]' width='100' height='100'>";
+                    echo "<img src='../{$merchandise_edit['foto_merchandise']}' width='100' height='100'>";
                     echo "<div style='font-size: 0.85rem; color: #777; margin-top: 5px;'>Upload foto baru untuk mengganti</div>";
                     echo "</div>";
                 }

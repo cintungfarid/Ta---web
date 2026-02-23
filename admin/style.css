@@ -38,7 +38,7 @@ body {
 .admin-profile {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 8px;
 }
 
 .profile-avatar {

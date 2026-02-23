@@ -1,8 +1,6 @@
 <?php 
     $page_titles = [
         'dashboard' => 'Dashboard',
-        'game_tampil' => 'Data Game',
-        'game_input' => 'Tambah/Edit Game',
         'komentar_tampil' => 'Komentar',
         'komentar_input' => 'Tambah/Edit Komentar',
         'merchandise_tampil' => 'Merchandise',
@@ -25,12 +23,6 @@
             {
                 case 'dashboard':
                     include "dashboard.php";
-                break;
-                case 'game_input':
-                    include "game_input.php";
-                break;
-                case 'game_tampil':
-                    include "game_tampil.php";
                 break;
                 case 'komentar_input':
                     include "komentar_input.php";

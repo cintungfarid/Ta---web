@@ -29,7 +29,7 @@
             echo "<td>Rp " . number_format($hasil['harga_merchandise'], 0, ',', '.') . "</td>";
             echo "<td align='center'>{$hasil['stock_merchandise']}</td>";
             echo "<td>{$hasil['detail_merchandise']}</td>";
-            echo "<td align='center'><img src='{$hasil['foto_merchandise']}' alt='' width='100' style='border-radius: 6px;'></td>";
+            echo "<td align='center'><img src='../{$hasil['foto_merchandise']}' alt='' width='100' style='border-radius: 6px;'></td>";
             echo "<td align='center'>";
             echo "<a href='index.php?page=merchandise_input&status=edit&id_merchandise={$hasil['id_merchandise']}' class='btn btn-edit btn-sm'>Edit</a> ";
             echo "<a href='#' onclick=\"confirmDeleteMerchandise('{$hasil['id_merchandise']}', '{$hasil['judul_merchandise']}')\" class='btn btn-delete btn-sm'>Hapus</a>";

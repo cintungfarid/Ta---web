@@ -13,12 +13,14 @@ switch ($status) {
         $detail_merchandise = $_REQUEST['detail_merchandise'];
 
         $asal = $_FILES['foto_merchandise']['tmp_name'];
-        $simpan_gambar = "../uploads/".$_FILES['foto_merchandise']['name'];
-        move_uploaded_file($asal, $simpan_gambar);
+        $nama_file = $_FILES['foto_merchandise']['name'];
+        $simpan_gambar_path = "../uploads/".$nama_file;
+        $simpan_gambar_db = "uploads/".$nama_file;
+        move_uploaded_file($asal, $simpan_gambar_path);
 
         $merchandise_input = mysqli_query($koneksi, 
         "INSERT INTO tb_merchandise (judul_merchandise, harga_merchandise, stock_merchandise, detail_merchandise, foto_merchandise ) 
-        VALUES ('$judul_merchandise','$harga_merchandise','$stock_merchandise','$detail_merchandise','$simpan_gambar')");
+        VALUES ('$judul_merchandise','$harga_merchandise','$stock_merchandise','$detail_merchandise','$simpan_gambar_db')");
 
         if($merchandise_input){
             catat_aktivitas($koneksi, $_SESSION['nama_admin'], "Menambah merchandise: $judul_merchandise");
@@ -37,15 +39,17 @@ switch ($status) {
 
         if(!empty($_FILES['foto_merchandise']['name'])){
             $asal = $_FILES['foto_merchandise']['tmp_name'];
-            $simpan_gambar = "../uploads/".$_FILES['foto_merchandise']['name'];
-            move_uploaded_file($asal, $simpan_gambar);
+            $nama_file = $_FILES['foto_merchandise']['name'];
+            $simpan_gambar_path = "../uploads/".$nama_file;
+            $simpan_gambar_db = "uploads/".$nama_file;
+            move_uploaded_file($asal, $simpan_gambar_path);
         } else {
             $data = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT foto_merchandise FROM tb_merchandise WHERE id_merchandise='$id_merchandise'"));
-            $simpan_gambar = $data['foto_merchandise'];
+            $simpan_gambar_db = $data['foto_merchandise'];
         }
 
         $merchandise_edit = mysqli_query($koneksi, 
-        "UPDATE tb_merchandise SET judul_merchandise='$judul_merchandise', harga_merchandise='$harga_merchandise', stock_merchandise='$stock_merchandise', detail_merchandise='$detail_merchandise', foto_merchandise='$simpan_gambar'
+        "UPDATE tb_merchandise SET judul_merchandise='$judul_merchandise', harga_merchandise='$harga_merchandise', stock_merchandise='$stock_merchandise', detail_merchandise='$detail_merchandise', foto_merchandise='$simpan_gambar_db'
         WHERE id_merchandise='$id_merchandise'");
 
         if($merchandise_edit){
