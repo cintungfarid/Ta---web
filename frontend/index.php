@@ -12,7 +12,7 @@
     <nav class="navbar">
         <div class="container">
             <div class="nav-logo">
-                <img src="asset/Teks paragraf Anda (2).png" alt="Logo Pelarian Timun Mas">
+                <img src="asset/Rule Book TAN.png" alt="Logo Pelarian Timun Mas">
             </div>
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>

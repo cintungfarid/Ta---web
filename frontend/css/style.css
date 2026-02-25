@@ -877,10 +877,12 @@ section {
     line-height: 1.2;
 }
 
-.game-detail-meta {
+.game-detail-meta,
+.game-meta {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0;
     padding-bottom: 20px;
     border-bottom: 2px solid var(--lighter-green);
 }
@@ -892,6 +894,16 @@ section {
     color: var(--text-light);
     font-size: 1.05rem;
     font-weight: 500;
+    padding: 0 20px;
+    border-right: 2px solid var(--lighter-green);
+}
+
+.meta-item:first-child {
+    padding-left: 0;
+}
+
+.meta-item:last-child {
+    border-right: none;
 }
 
 .meta-item i {
@@ -1004,11 +1016,14 @@ section {
 
 .game-components-section {
     margin-top: 60px;
-    padding: 60px 40px;
-    background: linear-gradient(135deg, #ffffff 0%, #f8fffe 100%);
+    padding: 50px;
+    background: var(--white);
     border-radius: 20px;
     box-shadow: var(--shadow-lg);
     border: 2px solid var(--lighter-green);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .components-title {
@@ -1021,7 +1036,7 @@ section {
 
 .components-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
@@ -1043,7 +1058,7 @@ section {
 
 .component-image {
     width: 100%;
-    height: 200px;
+    aspect-ratio: 1 / 1;
     position: relative;
     background: var(--lighter-green);
     overflow: hidden;
@@ -1052,9 +1067,8 @@ section {
 .component-image img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     display: block;
-    padding: 15px;
 }
 
 .component-placeholder {
@@ -1083,7 +1097,7 @@ section {
 
 @media (max-width: 992px) {
     .components-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -1104,6 +1118,51 @@ section {
     .component-image {
         height: 180px;
     }
+}
+
+.game-description,
+.how-to-play {
+    padding: 25px 0;
+    border-bottom: 2px solid var(--lighter-green);
+}
+
+.how-to-play {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.game-description h2,
+.how-to-play h2 {
+    font-size: 1.8rem;
+    color: var(--primary-green);
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.game-description p {
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    line-height: 1.8;
+}
+
+.rules-section ol {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.rules-section ol li {
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    line-height: 1.8;
+    margin-bottom: 12px;
+    padding-left: 8px;
+}
+
+.rules-section h3 {
+    font-size: 1.7rem;
+    color: var(--primary-green);
+    font-weight: 700;
+    margin-bottom: 12px;
 }
 
 @media (max-width: 480px) {

@@ -58,55 +58,32 @@
 
                     <div class="game-description">
                         <h2>Tentang Game</h2>
-                        <p>Board game petualangan yang mengadaptasi kisah rakyat klasik Indonesia. Dalam permainan ini, pemain berperan sebagai Timun Mas yang harus melarikan diri dari kejaran Buto Ijo yang menakutkan. Gunakan item-item magis seperti terasi, garam, jarum, dan mentimun untuk menghalangi Buto Ijo dan mencapai tempat aman sebelum ditangkap!</p>
+                        <p>Pelarian Timun Mas adalah board game petualangan yang bertema cerita rakyat Nusantara tentang Timun Mas yang berusaha melarikan diri dari kejaran Buto ljo. Pemain akan berperan sebagai Timun Mas yang berusaha mencapai rumah ibu sambil menggunakan berbagai tembok dan kartu untuk menghadapi kejaran Sang Buto ljo.</p>
                     </div>
 
                     <div class="how-to-play">
                         <h2>Cara Bermain</h2>
                         
                         <div class="rules-section">
-                            <h3>Persiapan</h3>
                             <ol>
-                                <li>Letakkan papan permainan di tengah</li>
-                                <li>Setiap pemain memilih 1 pion Timun Mas dan letakkan di titik start</li>
-                                <li>Letakkan pion Buto Ijo di posisi awal</li>
-                                <li>Kocok kartu item dan bagikan 2 kartu untuk setiap pemain</li>
-                                <li>Siapkan dadu untuk menentukan langkah</li>
+                                <li>Papan Permainan dimainkan oleh dua orang pemain, satu pemain berperan sebagai timun mas dan yang satunya berperan sebagai buto ijo.</li>
+                                <li>Permainan diawali dengan kedua pemain melakukan suit (gunting, batu, kertas) untuk menentukan giliran pemain dan selanjutnya, kedua pemain saling bergiliran melakukan aksi sampai permainan akhir.</li>
+                                <li>Pada awal permainan, Pion Timun Mas dan Buto Ijo diletakan dimasing - masing petak yang sudah disiapkan.</li>
+                                <li>Setiap pemain memiliki tujuan yang berbeda, Timun Mas harus mencapai rumah ibunya yang berada pada pojok kanan atas petak, sedangkan Buto ijo harus mengejar dan menangkap Timun Mas.</li>
+                                <li>Dalam satu giliran, Pemain hanya boleh melakukan satu aksi. Aksi yang didapat adalah:Menggerakan pion, Memasang block lawan, Menggunakan kartu spesial berupa Biji Mentimun, Jarum, Garam, Terasi (khusus Timun Mas)</li>
+                                <li>Penggerakan pion dibedakan sesuai dengan peran pemain yaitu: Timun mas hanya boleh bergerak 1 petak, Buto Ijo dapat bergerak 2 petak dalam satu giliran, Namun jika jalur didepan terdapat tembok Buto ijo tetep bisa bergerak tetapi hanya 1 petak.</li>
+                                <li>Block digunakan untuk menghalangi atau memperlambat pergerakan lawan. Block tidak boleh dipasang hingga menutup seluruh jalur permainan, sehingga lawan tetap memiliki jalan untuk bergerak.</li>
+                                <li>Permainan terus berlangsung secara begantian hingga salah satu pemain mencapai kondisi menang atau kalah.</li>
                             </ol>
                         </div>
 
-                        <div class="rules-section">
-                            <h3>Jalannya Permainan</h3>
-                            <ol>
-                                <li>Lempar dadu untuk menentukan urutan bermain (angka tertinggi mulai duluan)</li>
-                                <li>Di giliran Anda, lempar dadu dan gerakkan pion sesuai angka yang keluar</li>
-                                <li>Jika mendarat di kotak item, ambil 1 kartu item dari tumpukan</li>
-                                <li>Jika mendarat di kotak perintah, ikuti instruksi yang tertera</li>
-                                <li>Gunakan kartu item untuk menghalangi Buto Ijo atau membantu perjalanan Anda</li>
-                                <li>Setelah semua pemain selesai, gerakkan Buto Ijo sesuai angka dadu</li>
-                                <li>Jika Buto Ijo menangkap pemain, pemain tersebut gugur</li>
-                            </ol>
-                        </div>
-
-                        <div class="rules-section">
-                            <h3>Cara Menang</h3>
-                            <p>Pemain pertama yang berhasil mencapai kotak "Tempat Aman" adalah pemenangnya! Jika Buto Ijo menangkap semua pemain sebelum ada yang mencapai tempat aman, maka tidak ada pemenang.</p>
-                        </div>
-
-                        <div class="rules-section">
-                            <h3>Item Magis</h3>
-                            <ul class="item-list">
-                                <li><strong>Terasi:</strong> Mundurkan Buto Ijo 3 langkah</li>
-                                <li><strong>Garam:</strong> Berhentikan Buto Ijo selama 1 putaran</li>
-                                <li><strong>Jarum:</strong> Ciptakan penghalang yang tidak bisa dilewati Buto Ijo</li>
-                                <li><strong>Mentimun:</strong> Teleportasi ke kotak mana saja yang Anda inginkan</li>
-                            </ul>
+            
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="components-section">
+            <div class="game-components-section">
                 <h2 class="components-title">Komponen Permainan</h2>
                 <div class="components-grid">
                     <div class="component-card">
@@ -116,7 +93,7 @@
                                 <i class="fas fa-chess-board"></i>
                             </div>
                         </div>
-                        <h4>Papan Arena</h4>
+                        <h3>Papan Arena</h3>
                     </div>
 
                     <div class="component-card">
@@ -126,7 +103,7 @@
                                 <i class="fas fa-chess-pawn"></i>
                             </div>
                         </div>
-                        <h4>Pion Pemain</h4>
+                        <h3>Pion Pemain</h3>
                     </div>
 
                     <div class="component-card">
@@ -136,7 +113,7 @@
                                 <i class="fas fa-chess-pawn"></i>
                             </div>
                         </div>
-                        <h4>Pion Buto</h4>
+                        <h3>Pion Buto</h3>
                     </div>
 
                     <div class="component-card">
@@ -146,7 +123,7 @@
                                 <i class="fas fa-square"></i>
                             </div>
                         </div>
-                        <h4>Tembok Penghalang</h4>
+                        <h3>Tembok Penghalang</h3>
                     </div>
 
                     <div class="component-card">
@@ -156,7 +133,7 @@
                                 <i class="fas fa-layer-group"></i>
                             </div>
                         </div>
-                        <h4>Kartu Spesial</h4>
+                        <h3>Kartu Spesial</h3>
                     </div>
 
                     <div class="component-card">
@@ -166,7 +143,7 @@
                                 <i class="fas fa-book"></i>
                             </div>
                         </div>
-                        <h4>Buku Panduan</h4>
+                        <h3>Buku Panduan</h3>
                     </div>
                 </div>
             </div>

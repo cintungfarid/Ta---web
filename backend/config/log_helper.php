@@ -4,7 +4,7 @@ function catat_aktivitas($koneksi, $nama_admin, $aktivitas) {
     $aktivitas = mysqli_real_escape_string($koneksi, $aktivitas);
     $waktu = date('Y-m-d H:i:s');
     
-    $query = "INSERT INTO tb_log (nama_admin, aktivitas, waktu) VALUES ('$nama_admin', '$aktivitas', '$waktu')";
+    $query = "INSERT INTO tb_log_aktivitas (admin_name, aksi, waktu) VALUES ('$nama_admin', '$aktivitas', '$waktu')";
     
     return mysqli_query($koneksi, $query);
 }

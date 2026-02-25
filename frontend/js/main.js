@@ -35,7 +35,7 @@ function loadMerchandise() {
                     const merchCard = `
                         <div class='merch-card'>
                             <div class='merch-image'>
-                                ${merch.foto_merchandise ? `<img src='../${merch.foto_merchandise}' alt='${merch.judul_merchandise}'>` : `<div class='merch-placeholder'><i class='fas fa-tshirt'></i></div>`}
+                                ${merch.foto_merchandise ? `<img src='../backend/${merch.foto_merchandise}' alt='${merch.judul_merchandise}'>` : `<div class='merch-placeholder'><i class='fas fa-tshirt'></i></div>`}
                             </div>
                             <div class='merch-content'>
                                 <h3>${merch.judul_merchandise}</h3>
