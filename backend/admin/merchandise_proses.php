@@ -66,9 +66,11 @@ switch ($status) {
         $merchandise_hapus = mysqli_query($koneksi, "DELETE FROM tb_merchandise WHERE id_merchandise ='$id_merchandise' ");
         if($merchandise_hapus){
             catat_aktivitas($koneksi, $_SESSION['nama_admin'], "Menghapus merchandise: " . $data_merch['judul_merchandise']);
-            echo"<script>alert('HAPUS BERHASIL'); window.location='index.php?page=merchandise_tampil';</script>";
+            $_SESSION['swal'] = ['icon' => 'success', 'title' => 'Berhasil!', 'text' => 'Merchandise berhasil dihapus.'];
+            echo"<script>window.location='index.php?page=merchandise_tampil';</script>";
         } else {
-            echo"<script>alert('HAPUS GAGAL'); window.location='index.php?page=merchandise_tampil';</script>";
+            $_SESSION['swal'] = ['icon' => 'error', 'title' => 'Gagal!', 'text' => 'Merchandise gagal dihapus.'];
+            echo"<script>window.location='index.php?page=merchandise_tampil';</script>";
         }
     break;
     default:

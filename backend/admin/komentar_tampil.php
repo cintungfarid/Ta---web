@@ -20,8 +20,7 @@
             echo "<td>$hasil[nama_penulis]</td>";
             echo "<td>$hasil[tanggal_komentar]</td>";
             echo "<td>$hasil[detail_komentar]</td>";
-            echo "<td align='center'><a href='#' onclick=\"if(confirm('Apakah yakin di hapus??'))
-            {window.location.href='komentar_proses.php?status=hapus&id_komentar=$hasil[id_komentar]';}\" class='btn btn-delete btn-sm'>Hapus</a></td>";
+            echo "<td align='center'><a href='#' onclick=\"confirmDeleteKomentar('{$hasil['id_komentar']}', '{$hasil['nama_penulis']}')\" class='btn btn-delete btn-sm'>Hapus</a></td>";
             echo "</tr>";
             
             $no++;
@@ -29,3 +28,22 @@
     ?>
     </tbody>
 </table>
+
+<?php
+if (isset($_SESSION['swal'])) {
+    $swal = $_SESSION['swal'];
+    unset($_SESSION['swal']);
+    echo "<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        Swal.fire({
+            icon: '{$swal['icon']}',
+            title: '{$swal['title']}',
+            text: '{$swal['text']}',
+            timer: 2000,
+            showConfirmButton: false
+        });
+    });
+    </script>";
+}
+?>
+<script src="js/komentar.js"></script>

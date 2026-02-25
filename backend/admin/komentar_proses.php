@@ -47,8 +47,10 @@ switch ($status) {
         $komentar_hapus = mysqli_query($koneksi, "DELETE FROM tb_komentar WHERE id_komentar ='$id_komentar' ");
         if($komentar_hapus){
             catat_aktivitas($koneksi, $_SESSION['nama_admin'], "Menghapus komentar dari: " . $data_komentar['nama_penulis']);
+            $_SESSION['swal'] = ['icon' => 'success', 'title' => 'Berhasil!', 'text' => 'Komentar berhasil dihapus.'];
             echo"<script>window.location='index.php?page=komentar_tampil';</script>";
         } else {
+            $_SESSION['swal'] = ['icon' => 'error', 'title' => 'Gagal!', 'text' => 'Komentar gagal dihapus.'];
             echo"<script>window.location='index.php?page=komentar_tampil';</script>";
         }
     break;
