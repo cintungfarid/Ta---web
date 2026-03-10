@@ -12,7 +12,7 @@
     <?php
         include "../config/koneksi.php"; 
         $no = 1;
-        $komentar_tampil = mysqli_query($koneksi, "SELECT * FROM tb_komentar");
+        $komentar_tampil = mysqli_query($koneksi, "SELECT * FROM tb_komentar ORDER BY id_komentar DESC");
         while ($hasil = mysqli_fetch_array($komentar_tampil))
         {
             echo "<tr>";

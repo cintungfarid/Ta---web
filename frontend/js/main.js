@@ -1,3 +1,119 @@
+function initComponentsSlider() {
+    const track = document.getElementById('compTrack');
+    const prevBtn = document.getElementById('compPrev');
+    const nextBtn = document.getElementById('compNext');
+    const dotsContainer = document.getElementById('compDots');
+
+    if (!track || !prevBtn || !nextBtn) return;
+
+    const cards = track.querySelectorAll('.component-card');
+    const totalCards = cards.length;
+
+    function getVisible() {
+        if (window.innerWidth <= 480) return 1;
+        if (window.innerWidth <= 992) return 2;
+        return 3;
+    }
+
+    let current = 0;
+
+    function maxIndex() {
+        return Math.max(0, totalCards - getVisible());
+    }
+
+    function buildDots() {
+        dotsContainer.innerHTML = '';
+        const pages = maxIndex() + 1;
+        for (let i = 0; i < pages; i++) {
+            const dot = document.createElement('button');
+            dot.className = 'slider-dot' + (i === current ? ' active' : '');
+            dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+            dot.addEventListener('click', () => goTo(i));
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    function goTo(index) {
+        const visible = getVisible();
+        current = Math.max(0, Math.min(index, maxIndex()));
+
+        const cardWidth = cards[0].getBoundingClientRect().width;
+        const gap = parseInt(getComputedStyle(track).gap) || 24;
+        const offset = current * (cardWidth + gap);
+        track.style.transform = `translateX(-${offset}px)`;
+
+        prevBtn.disabled = current === 0;
+        nextBtn.disabled = current >= maxIndex();
+
+        dotsContainer.querySelectorAll('.slider-dot').forEach((d, i) => {
+            d.classList.toggle('active', i === current);
+        });
+    }
+
+    prevBtn.addEventListener('click', () => goTo(current - 1));
+    nextBtn.addEventListener('click', () => goTo(current + 1));
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            current = Math.min(current, maxIndex());
+            buildDots();
+            goTo(current);
+        }, 150);
+    });
+
+    buildDots();
+    goTo(0);
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    initComponentsSlider();
+    initScrollReveal();
+});
+
+function initScrollReveal() {
+    const revealTargets = [
+        { selector: '.section-title', cls: 'reveal' },
+        { selector: '.about-image', cls: 'reveal-left' },
+        { selector: '.about-content', cls: 'reveal-right' },
+        { selector: '.game-card', cls: 'reveal' },
+        { selector: '.merch-card', cls: 'reveal' },
+        { selector: '.comment-form', cls: 'reveal-left' },
+        { selector: '.comments-list', cls: 'reveal-right' },
+        { selector: '.game-detail-image', cls: 'reveal-left' },
+        { selector: '.game-detail-content', cls: 'reveal-right' },
+        { selector: '.game-components-section', cls: 'reveal' },
+    ];
+
+    revealTargets.forEach(({ selector, cls }) => {
+        document.querySelectorAll(selector).forEach((el, i) => {
+            el.classList.add(cls);
+            if (cls === 'reveal' && selector === '.merch-card') {
+                el.style.transitionDelay = `${i * 0.1}s`;
+            }
+        });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+function closeCommentModal() {
+    const modal = document.getElementById('comment-success-modal');
+    if (modal) modal.style.display = 'none';
+}
+
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
@@ -5,7 +121,28 @@ window.addEventListener('scroll', function() {
     } else {
         navbar.classList.remove('scrolled');
     }
+    updateActiveNavLink();
 });
+
+function updateActiveNavLink() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-menu li a[href^="#"]');
+    const scrollY = window.scrollY + 100;
+
+    let currentId = '';
+    sections.forEach(section => {
+        if (scrollY >= section.offsetTop) {
+            currentId = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + currentId) {
+            link.classList.add('active');
+        }
+    });
+}
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -57,20 +194,19 @@ function loadMerchandise() {
 }
 
 function loadComments() {
-    fetch('../backend/api/get_comments.php?limit=5')
+    fetch('../backend/api/get_comments.php?limit=50')
         .then(response => response.json())
         .then(data => {
             const commentsList = document.querySelector('.comments-list');
-            const commentsContainer = commentsList.querySelector('.comments-container') || commentsList;
-            
+
             if (data.success && data.data.length > 0) {
-                let html = '<h3>Komentar Terbaru</h3>';
+                let items = '';
                 data.data.forEach(comment => {
                     const tanggal = new Date(comment.tanggal_komentar);
                     const options = { day: '2-digit', month: 'short', year: 'numeric' };
                     const tanggalFormat = tanggal.toLocaleDateString('id-ID', options);
-                    
-                    html += `
+
+                    items += `
                         <div class='comment-item'>
                             <div class='comment-header'>
                                 <strong>${comment.nama_penulis}</strong>
@@ -80,7 +216,7 @@ function loadComments() {
                         </div>
                     `;
                 });
-                commentsList.innerHTML = html;
+                commentsList.innerHTML = `<h3>Komentar Terbaru</h3><div class='comments-scroll-area'>${items}</div>`;
             } else {
                 commentsList.innerHTML = "<h3>Komentar Terbaru</h3><p class='no-data'>Belum ada komentar.</p>";
             }
@@ -109,9 +245,10 @@ if (commentForm) {
             body: formData
         })
         .then(() => {
-            alert('Komentar berhasil dikirim! Terima kasih atas feedback Anda.');
             this.reset();
             loadComments();
+            const modal = document.getElementById('comment-success-modal');
+            if (modal) modal.style.display = 'flex';
         })
         .catch(error => {
             alert('Gagal mengirim komentar. Silakan coba lagi.');

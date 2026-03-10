@@ -45,6 +45,7 @@
                     <h3>VALENSIA CHIKO VARIANTO</h3>
                     <p>Tentang:</p>
                     <p>Saya adalah pembuat Board Game dengan tema "Pelarian Timun Mas"</p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:cintungfarid@gmail.com">cintungfarid@gmail.com</a></p>
                 </div>
             </div>
         </div>
@@ -107,6 +108,19 @@
             <p>&copy; <?php echo date('Y'); ?> Timun Mas Board Game. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <div id="comment-success-modal" class="modal-overlay" style="display:none;">
+        <div class="modal-box">
+            <div class="modal-icon">
+                <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="26" cy="26" r="24" fill="none" stroke="#4CAF50" stroke-width="3"/>
+                    <path d="M14 27 l9 9 l16-17" fill="none" stroke="#4CAF50" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <p class="modal-text">Komentar Terkirim</p>
+            <button class="btn btn-modal-ok" onclick="closeCommentModal()">Ok</button>
+        </div>
+    </div>
 
     <script src="js/main.js"></script>
 </body>
