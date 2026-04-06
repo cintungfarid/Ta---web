@@ -507,6 +507,136 @@ form table tr:last-child td {
     text-align: center;
 }
 
+/* Comment Notifications */
+.comment-notification-panel {
+    position: relative;
+    margin-top: 18px;
+}
+
+.comment-notification-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 10px;
+    padding: 12px 14px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.comment-notification-trigger:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.comment-notification-badge,
+.menu-comment-badge {
+    min-width: 24px;
+    height: 24px;
+    padding: 0 7px;
+    border-radius: 999px;
+    background: #ff4d4f;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.menu-comment-badge {
+    margin-left: auto;
+}
+
+.comment-notification-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    color: #2d3748;
+    border-radius: 12px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+    overflow: hidden;
+    display: none;
+    z-index: 20;
+}
+
+.comment-notification-dropdown.show {
+    display: block;
+}
+
+.comment-notification-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 14px;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.comment-notification-action {
+    background: transparent;
+    border: none;
+    color: #11998e;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.comment-notification-action:disabled {
+    color: #a0aec0;
+    cursor: not-allowed;
+}
+
+.comment-notification-list {
+    max-height: 320px;
+    overflow-y: auto;
+}
+
+.comment-notification-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 14px;
+    text-decoration: none;
+    color: #2d3748;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.comment-notification-item:hover {
+    background: #f7fafc;
+}
+
+.comment-notification-item strong {
+    color: #1a202c;
+    font-size: 0.95rem;
+}
+
+.comment-notification-item span {
+    font-size: 0.85rem;
+    color: #4a5568;
+    line-height: 1.5;
+}
+
+.comment-notification-item small {
+    font-size: 0.75rem;
+    color: #718096;
+}
+
+.comment-notification-empty {
+    padding: 16px 14px;
+    font-size: 0.9rem;
+    color: #718096;
+}
+
+.is-hidden {
+    display: none;
+}
+
 @media (max-width: 768px) {
     form table {
         padding: 20px 15px;

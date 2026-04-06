@@ -1,6 +1,8 @@
 <?php 
 $page_titles = [
     'dashboard' => 'Dashboard',
+    'admin_tampil' => 'Kelola Admin',
+    'admin_input' => 'Tambah/Edit Admin',
     'komentar_tampil' => 'Komentar',
     'komentar_input' => 'Tambah/Edit Komentar',
     'merchandise_tampil' => 'Merchandise',
@@ -21,6 +23,12 @@ $page_title = isset($page_titles[$current_page]) ? $page_titles[$current_page] :
             switch ($_GET['page']) {
                 case 'dashboard':
                     include "dashboard.php";
+                    break;
+                case 'admin_input':
+                    include "admin_input.php";
+                    break;
+                case 'admin_tampil':
+                    include "admin_tampil.php";
                     break;
                 case 'komentar_input':
                     include "komentar_input.php";
