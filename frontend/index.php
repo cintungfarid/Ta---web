@@ -14,7 +14,12 @@
             <div class="nav-logo">
                 <img src="asset/Rule Book TAN.png" alt="Logo Pelarian Timun Mas">
             </div>
-            <ul class="nav-menu">
+            <button class="nav-toggle" id="navToggle" aria-label="Buka menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#game">Game</a></li>
@@ -23,6 +28,7 @@
             </ul>
         </div>
     </nav>
+    <div class="nav-overlay" id="navOverlay"></div>
 
     <section id="home" class="hero">
         <div class="hero-content">
