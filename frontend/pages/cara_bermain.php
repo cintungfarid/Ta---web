@@ -7,6 +7,13 @@
     <title>Cara Bermain - Pelarian Timun Mas</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .how-to-play-aturan {
+            border-top: 2px solid var(--lighter-green);
+            padding-top: 25px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     
@@ -66,45 +73,48 @@
                         
                         <div class="rules-section">
                             <ol>
-                                <li>Papan Permainan dimainkan oleh dua orang pemain, satu pemain berperan sebagai timun mas dan yang satunya berperan sebagai buto ijo.</li>
-                                <li>Permainan diawali dengan kedua pemain melakukan suit (gunting, batu, kertas) untuk menentukan giliran pemain dan selanjutnya, kedua pemain saling bergiliran melakukan aksi sampai permainan akhir.</li>
-                                <li>Pada awal permainan, Pion Timun Mas dan Buto Ijo diletakan dimasing - masing petak yang sudah disiapkan.</li>
-                                <li>Setiap pemain memiliki tujuan yang berbeda, Timun Mas harus mencapai rumah ibunya yang berada pada pojok kanan atas petak, sedangkan Buto ijo harus mengejar dan menangkap Timun Mas.</li>
-                                <li>Dalam satu giliran, Pemain hanya boleh melakukan satu aksi. Aksi yang didapat adalah:Menggerakan pion, Memasang block lawan, Menggunakan kartu spesial berupa Biji Mentimun, Jarum, Garam, Terasi (khusus Timun Mas)</li>
-                                <li>Penggerakan pion dibedakan sesuai dengan peran pemain yaitu: Timun mas hanya boleh bergerak 1 petak, Buto Ijo dapat bergerak 2 petak dalam satu giliran, Namun jika jalur didepan terdapat tembok Buto ijo tetep bisa bergerak tetapi hanya 1 petak.</li>
-                                <li>Block digunakan untuk menghalangi atau memperlambat pergerakan lawan. Block tidak boleh dipasang hingga menutup seluruh jalur permainan, sehingga lawan tetap memiliki jalan untuk bergerak.</li>
-                                <li>Permainan terus berlangsung secara begantian hingga salah satu pemain mencapai kondisi menang atau kalah.</li>
+                                <li>Permainan dimainkan oleh dua orang pemain, yaitu satu sebagai Timun Mas dan satu sebagai Buto Ijo.</li>
+                                <li>Pada awal permainan, Pion Timun Mas dan Buto Ijo diletakkan dimasing - masing petak yang sudah disiapkan.</li>
+                                <li>Permainan diawali dengan suit (gunting, batu, kertas) untuk menentukan siapa yang mendapat giliran pertama.</li>
+                                <li>Dalam satu giliran, Pemain hanya boleh melakukan satu aksi:
+                                    <ul>
+                                        <li>Menggerakan pion.</li>
+                                        <li>Memasang block lawan.</li>
+                                        <li>Menggunakan kartu spesial berupa Biji Mentimun, Jarum, Garam, Terasi (khusus Timun Mas).</li>
+                                    </ul>
+                                </li>
+                                <li>Tujuan masing - masing pemain berbeda:
+                                    <ul>
+                                        <li><strong>Timun Mas</strong> : Mencapai rumah Ibunya yang berada pada kotak teratas.</li>
+                                        <li><strong>Buto Ijo</strong> : Mengejar dan menangkap Timun Mas.</li>
+                                    </ul>
+                                </li>
                             </ol>
                         </div>
 
-                        <div class="aturan-bermain-section">
-                            <h2>Aturan Bermain</h2>
-                            <div class="aturan-grid">
-                                <div class="aturan-card">
-                                    <div class="aturan-icon"><i class="fas fa-ban"></i></div>
-                                    <h4>Dilarang</h4>
+                       <div class="how-to-play how-to-play-aturan">
+                        <h2>Aturan  Bermain</h2>
+                        
+                        <div class="rules-section">
+                            <ol>
+                                <li>Dalam satu giliran, pemain hanya boleh melakukan satu aksi saja.</li>
+                                <li>Pergerakan pion dibedakan berdasarkan peran pemain, yaitu:
                                     <ul>
-                                        <li>Tidak boleh menutup seluruh jalur lawan dengan tembok.</li>
-                                        <li>Tidak boleh melakukan lebih dari satu aksi dalam satu giliran.</li>
-                                        <li>Tidak boleh menggerakkan pion melebihi batas langkah yang ditentukan.</li>
+                                        <li>Timun Mas hanya boleh bergerak 1 langkah dalam satu giliran.</li>
+                                        <li>Buto Ijo dapat bergerak 1 atau 2 langkah dalam satu giliran.</li>
                                     </ul>
-                                </div>
-                                <div class="aturan-card">
-                                    <div class="aturan-icon"><i class="fas fa-trophy"></i></div>
-                                    <h4>Kondisi Menang</h4>
-                                    <ul>
-                                        <li><strong>Timun Mas</strong> menang jika berhasil mencapai rumah ibu di pojok kanan atas.</li>
-                                        <li><strong>Buto Ijo</strong> menang jika berhasil menangkap Timun Mas (berada di petak yang sama).</li>
-                                    </ul>
-                                </div>
-                                <div class="aturan-card">
-                                    <div class="aturan-icon"><i class="fas fa-magic"></i></div>
-                                    <h4>Kartu Spesial</h4>
-                                    <ul>
-                                        <li><strong>Biji Mentimun</strong> — Timun Mas dapat bergerak 2 petak sekali pakai.</li>
-                                        <li><strong>Jarum</strong> — Membuat Buto Ijo melewati giliran berikutnya.</li>
-                                        <li><strong>Garam</strong> — Menghapus satu tembok yang dipasang lawan.</li>
-                                        <li><strong>Terasi</strong> — Memindahkan Buto Ijo mundur 2 petak.</li>
+                                </li>
+                                <li>Khusus Buto Ijo, apabila jalur di depan terdapat tembok, maka Buto Ijo tetap dapat bergerak, namun hanya diperbolehkan 1 langkah pada giliran tersebut.</li>
+                                <li>Block digunakan untuk menghalangi atau memperlambat pergerakan lawan, baik untuk Timun Mas maupun Buto Ijo.</li>
+                                <li>Pemasangan tembok tidak boleh sampai menutup seluruh jalur permainan, sehingga lawan tetap memiliki setidaknya satu jalur untuk bergerak.</li>
+                                <li>Setiap kartu spesial memiliki fungsi tertentu yang dapat memberikan keuntungan bagi Timun Mas dalam situasi tertentu.</li>
+                                <li>Kartu spesial hanya dapat digunakan oleh pemain yang berperan sebagai Timun Mas dan penggunaan kartu dihitung sebagai satu aksi dalam satu giliran.</li>
+                                <li>Timun Mas dinyatakan menang apabila berhasil mencapai rumah ibunya pada kotak teratas papan permainan.</li>
+                                <li>Buto Ijo dinyatakan menang apabila berhasil menangkap Timun Mas sebelum Timun Mas mencapai tujuan akhir.</li>
+                                <li>Permainan berakhir ketika salah satu kondisi kemenangan telah tercapai, dan tidak dapat dilanjutkan ke giliran berikutnya.</li>
+                            </ol>
+                        </div>
+
                                     </ul>
                                 </div>
                             </div>
