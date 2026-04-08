@@ -433,15 +433,17 @@ section {
 .game-grid {
     display: grid;
     gap: 40px;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
 .game-card {
-    display: flex;
-    gap: 35px;
+    display: grid;
+    grid-template-columns: minmax(280px, 420px) minmax(0, 1fr);
+    align-items: stretch;
+    gap: 0;
     background: var(--white);
-    border-radius: 20px;
+    border-radius: 24px;
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: box-shadow 0.35s ease, transform 0.35s ease;
@@ -453,17 +455,21 @@ section {
 }
 
 .game-image {
-    flex-shrink: 0;
-    width: 350px;
-    height: 280px;
+    min-height: 100%;
     overflow: hidden;
-    background: var(--lighter-green);
+    background: linear-gradient(135deg, #dff8dc 0%, #f4fff3 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
 }
 
 .game-image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 420px;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
     transition: transform 0.5s ease;
 }
 
@@ -486,17 +492,19 @@ section {
 }
 
 .game-content {
-    padding: 35px;
+    padding: 38px 40px;
     flex: 1;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .game-content h3 {
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 2.5vw, 2.3rem);
     color: var(--primary-green);
     margin-bottom: 12px;
     font-weight: 700;
+    line-height: 1.2;
 }
 
 .game-date {
@@ -514,8 +522,9 @@ section {
     color: var(--text-dark);
     margin-bottom: 25px;
     flex: 1;
-    line-height: 1.8;
+    line-height: 1.9;
     font-size: 1.05rem;
+    max-width: 62ch;
 }
 
 .merchandise {
@@ -854,16 +863,16 @@ section {
     }
     
     .game-card {
-        flex-direction: column;
+        grid-template-columns: 1fr;
     }
     
     .game-image {
-        width: 100%;
-        height: 280px;
+        min-height: 320px;
+        padding: 28px;
     }
     
     .game-content {
-        padding: 30px;
+        padding: 32px;
     }
     
     .merchandise-grid {
@@ -987,12 +996,22 @@ section {
         font-size: 1.05rem;
     }
     
+    .game-image {
+        min-height: 260px;
+        padding: 22px;
+    }
+
+    .game-content {
+        padding: 26px 24px;
+    }
+
     .game-content h3 {
         font-size: 1.7rem;
     }
     
     .game-desc {
         font-size: 1rem;
+        max-width: 100%;
     }
     
     .merchandise-grid {
@@ -1099,6 +1118,20 @@ section {
         font-size: 1.6rem;
     }
     
+    .game-image {
+        min-height: 220px;
+        padding: 18px;
+    }
+
+    .game-content {
+        padding: 22px 18px;
+    }
+
+    .game-date {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+
     .comment-form {
         padding: 25px 20px;
     }
@@ -1428,6 +1461,16 @@ section {
     display: block;
 }
 
+.component-image-card img {
+    max-width: 87%;
+    max-height: 87%;
+}
+
+.component-image-board img {
+    max-width: 88%;
+    max-height: 88%;
+}
+
 .component-placeholder {
     width: 100%;
     height: 100%;
@@ -1446,9 +1489,9 @@ section {
 }
 
 .component-card h3 {
-    font-size: 1.2rem;
+    font-size: 0.95rem;
     color: var(--black);
-    padding: 18px 14px;
+    padding: 8px 8px;
     font-weight: 700;
     background: var(--lighter-green);
 }
@@ -1572,19 +1615,36 @@ section {
     font-size: 1.05rem;
     color: var(--text-dark);
     line-height: 1.8;
+    text-align: justify;
 }
 
-.rules-section ol {
-    padding-left: 20px;
+.rules-section ol,
+.rules-section ul {
+    padding-left: 22px;
     margin-top: 10px;
 }
 
-.rules-section ol li {
+.rules-section ul {
+    list-style-type: disc;
+}
+
+.rules-section ul li::marker {
+    color: #000;
+}
+
+.rules-section ol li,
+.rules-section ul li {
     font-size: 1.05rem;
     color: var(--text-dark);
     line-height: 1.8;
     margin-bottom: 12px;
-    padding-left: 8px;
+    padding-left: 6px;
+    text-align: justify;
+}
+
+.rules-section li > ul {
+    margin-top: 8px;
+    padding-left: 18px;
 }
 
 .rules-section h3 {
@@ -1675,10 +1735,20 @@ section {
     .component-image {
         height: 200px;
     }
+
+    .component-image-card img {
+        max-width: 68%;
+        max-height: 68%;
+    }
+
+    .component-image-board img {
+        max-width: 84%;
+        max-height: 84%;
+    }
     
     .component-card h3 {
-        font-size: 1.2rem;
-        padding: 18px 15px;
+        font-size: 0.92rem;
+        padding: 8px 8px;
     }
 
     .game-detail-section {

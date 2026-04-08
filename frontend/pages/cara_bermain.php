@@ -47,7 +47,7 @@
 
             <div class="game-detail-container">
                 <div class="game-detail-image">
-                    <img src="../asset/Teks paragraf Anda (2).png" alt="Board game Pelarian Timun Mas">
+                    <img src="../asset/Papan.png" alt="Board game Pelarian Timun Mas">
                 </div>
 
                 <div class="game-detail-content">
@@ -56,11 +56,11 @@
                     <div class="game-meta">
                         <div class="meta-item">
                             <i class="fas fa-users"></i>
-                            <span>2-4 Pemain</span>
+                            <span>2 Pemain</span>
                         </div>
                         <div class="meta-item">
                             <i class="far fa-clock"></i>
-                            <span>30-45 Menit</span>
+                            <span>15-20 Menit</span>
                         </div>
                         <div class="meta-item">
                             <i class="fas fa-puzzle-piece"></i>
@@ -89,8 +89,8 @@
                                 </li>
                                 <li>Tujuan masing-masing pemain berbeda:
                                     <ul>
-                                        <li><strong>Timun Mas</strong>: mencapai rumah ibunya yang berada pada kotak teratas.</li>
-                                        <li><strong>Buto Ijo</strong>: mengejar dan menangkap Timun Mas.</li>
+                                        <li>Timun Mas: mencapai rumah ibunya yang berada pada kotak teratas.</li>
+                                        <li>Buto Ijo: mengejar dan menangkap Timun Mas.</li>
                                     </ul>
                                 </li>
                             </ol>
@@ -131,8 +131,8 @@
                     <div class="components-slider-viewport">
                         <div class="components-slider-track" id="compTrack">
                             <div class="component-card">
-                                <div class="component-image">
-                                    <img src="../asset/WhatsApp Image 2026-02-17 at 06.56.19.jpeg" alt="Papan arena" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="component-image component-image-board">
+                                    <img src="../asset/Papan.png" alt="Papan arena" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                                     <div class="component-placeholder">
                                         <i class="fas fa-chess-board"></i>
                                     </div>
@@ -147,12 +147,12 @@
                                         <i class="fas fa-chess-pawn"></i>
                                     </div>
                                 </div>
-                                <h3>Pion Pemain</h3>
+                                <h3>Pion Timun Mas</h3>
                             </div>
 
                             <div class="component-card">
                                 <div class="component-image">
-                                    <img src="../asset/WhatsApp Image 2026-02-18 at 13.55.08 (1).jpeg" alt="Pion Buto Ijo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                    <img src="../asset/pion buto.png" alt="Pion Buto Ijo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                                     <div class="component-placeholder">
                                         <i class="fas fa-chess-pawn"></i>
                                     </div>
@@ -162,47 +162,47 @@
 
                             <div class="component-card">
                                 <div class="component-image">
-                                    <img src="../asset/WhatsApp Image 2026-02-17 at 13.32.07.jpeg" alt="Tembok penghalang" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                    <img src="../asset/tembok.png" alt="Tembok penghalang" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                                     <div class="component-placeholder">
                                         <i class="fas fa-square"></i>
                                     </div>
                                 </div>
-                                <h3>Tembok Penghalang</h3>
+                                <h3>Tembok</h3>
                             </div>
 
                             <div class="component-card">
-                                <div class="component-image">
-                                    <img src="../asset/3.png" alt="Kartu spesial 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="component-image component-image-card">
+                                    <img src="../asset/kartu terasi.png" alt="Kartu Terasi" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                                     <div class="component-placeholder">
                                         <i class="fas fa-layer-group"></i>
                                     </div>
                                 </div>
-                                <h3>Kartu Spesial 1</h3>
+                                <h3>Kartu Terasi</h3>
                             </div>
 
                             <div class="component-card">
-                                <div class="component-image">
-                                    <img src="../asset/6.png" alt="Kartu spesial 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="component-image component-image-card">
+                                    <img src="../asset/kartu biji mentimun.png" alt="Kartu Biji Mentimun" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                                     <div class="component-placeholder">
                                         <i class="fas fa-layer-group"></i>
                                     </div>
                                 </div>
-                                <h3>Kartu Spesial 2</h3>
+                                <h3>Kartu Biji Mentimun</h3>
                             </div>
 
                             <div class="component-card">
-                                <div class="component-image">
-                                    <img src="../asset/9.png" alt="Kartu spesial 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="component-image component-image-card">
+                                    <img src="../asset/kartu garam.png" alt="Kartu Garam" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                                     <div class="component-placeholder">
                                         <i class="fas fa-layer-group"></i>
                                     </div>
                                 </div>
-                                <h3>Kartu Spesial 3</h3>
+                                <h3>Kartu Garam</h3>
                             </div>
 
                             <div class="component-card">
-                                <div class="component-image">
-                                    <img src="../asset/12.png" alt="Kartu spesial 4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="component-image component-image-card">
+                                    <img src="../asset/kartu jarum.png" alt="Kartu Jarum" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                                     <div class="component-placeholder">
                                         <i class="fas fa-layer-group"></i>
                                     </div>
@@ -210,15 +210,6 @@
                                 <h3>Kartu Spesial 4</h3>
                             </div>
 
-                            <div class="component-card">
-                                <div class="component-image">
-                                    <img src="../asset/components/panduan.jpg" alt="Buku panduan" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                    <div class="component-placeholder">
-                                        <i class="fas fa-book"></i>
-                                    </div>
-                                </div>
-                                <h3>Buku Panduan</h3>
-                            </div>
                         </div>
                     </div>
                     <button class="slider-btn slider-btn-next" id="compNext" aria-label="Berikutnya">

@@ -63,11 +63,11 @@
             <div class="game-grid">
                 <div class="game-card">
                     <div class="game-image">
-                        <img src="asset/Teks paragraf Anda (2).png" alt="Pelarian Timun Mas">
+                        <img src="asset/Papan.png" alt="Pelarian Timun Mas">
                     </div>
                     <div class="game-content">
                         <h3>Pelarian Timun Mas</h3>
-                        <p class="game-date"><i class="fas fa-users"></i> 2-4 Pemain | <i class="far fa-clock"></i> 30-45 Menit</p>
+                        <p class="game-date"><i class="fas fa-users"></i> 2 Pemain | <i class="far fa-clock"></i> 15-20 Menit</p>
                         <p class="game-desc">Board game petualangan yang menceritakan kisah klasik Indonesia. Bantu Timun Mas melarikan diri dari kejaran Buto Ijo menggunakan item-item magis seperti terasi, garam, jarum, dan mentimun. Pemain pertama yang mencapai tempat aman adalah pemenangnya!</p>
                         <a href="pages/cara_bermain.php" class="btn btn-primary">Cara Bermain</a>
                     </div>
