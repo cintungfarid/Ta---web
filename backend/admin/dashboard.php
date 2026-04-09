@@ -21,16 +21,16 @@ if ($query_komen) {
     }
 }
 
-$query_admin = mysqli_query($koneksi, "SELECT COUNT(*) as total FROM tb_admin");
-if ($query_admin) {
-    $result = mysqli_fetch_assoc($query_admin);
+$query_komentar_terbaru_count = mysqli_query($koneksi, "SELECT COUNT(*) as total FROM (SELECT id_komentar FROM tb_komentar ORDER BY id_komentar DESC LIMIT 5) as komentar_terbaru");
+if ($query_komentar_terbaru_count) {
+    $result = mysqli_fetch_assoc($query_komentar_terbaru_count);
     if ($result) {
         $admin = $result['total'];
     }
 }
 
 $query_log = mysqli_query($koneksi, "SELECT * FROM tb_log_aktivitas ORDER BY waktu DESC");
-$query_admin_list = mysqli_query($koneksi, "SELECT nama_admin, user_name FROM tb_admin ORDER BY nama_admin ASC");
+$query_komentar_terbaru = mysqli_query($koneksi, "SELECT id_komentar, nama_penulis, tanggal_komentar, detail_komentar FROM tb_komentar ORDER BY id_komentar DESC LIMIT 5");
 ?>
 
 <div style="max-width: 1400px; margin: 15px auto 0; padding: 0 20px;">
@@ -46,7 +46,7 @@ $query_admin_list = mysqli_query($koneksi, "SELECT nama_admin, user_name FROM tb
         </div>
 
         <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center; flex: 1; min-width: 300px;">
-            <h6 style="font-size: 18px; margin-bottom: 15px; color: #666;">Admin</h6>
+            <h6 style="font-size: 18px; margin-bottom: 15px; color: #666;">Komentar Terbaru</h6>
             <h3 style="font-size: 48px; margin: 0; color: #11998e;"><?= $admin ?></h3>
         </div>
     </div>
@@ -56,35 +56,37 @@ $query_admin_list = mysqli_query($koneksi, "SELECT nama_admin, user_name FROM tb
     <div style="display: flex; gap: 20px; flex-wrap: wrap;">
         <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); flex: 1; min-width: 420px;">
             <div style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;">
-                <h4 style="margin: 0; color: #333; font-size: 20px;">Data Admin</h4>
-                <a href="index.php?page=admin_tampil" style="display: inline-block; padding: 10px 18px; background: #11998e; color: #fff; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: 600;">Kelola Admin</a>
+                <h4 style="margin: 0; color: #333; font-size: 20px;">Komentar Terbaru</h4>
+                <a href="index.php?page=komentar_tampil" style="display: inline-block; padding: 10px 18px; background: #11998e; color: #fff; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: 600;">Lihat Semua</a>
             </div>
             <div style="overflow-x: auto; max-height: 270px; overflow-y: auto;">
                 <table style="width: 100%; border-collapse: collapse;">
                     <thead>
                         <tr style="background: #f8f9fa;">
                             <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6; font-weight: 600; color: #495057;">No</th>
-                            <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6; font-weight: 600; color: #495057;">Nama Admin</th>
-                            <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6; font-weight: 600; color: #495057;">Username</th>
+                            <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6; font-weight: 600; color: #495057;">Penulis</th>
+                            <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6; font-weight: 600; color: #495057;">Tanggal</th>
+                            <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6; font-weight: 600; color: #495057;">Komentar</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $no_admin = 1;
-                        if ($query_admin_list && mysqli_num_rows($query_admin_list) > 0):
-                            while ($data_admin = mysqli_fetch_assoc($query_admin_list)):
+                        $no_komentar = 1;
+                        if ($query_komentar_terbaru && mysqli_num_rows($query_komentar_terbaru) > 0):
+                            while ($data_komentar = mysqli_fetch_assoc($query_komentar_terbaru)):
                         ?>
                         <tr style="border-bottom: 1px solid #dee2e6;">
-                            <td style="padding: 12px;"><?= $no_admin++ ?></td>
-                            <td style="padding: 12px; font-weight: 500;"><?= htmlspecialchars($data_admin['nama_admin'], ENT_QUOTES, 'UTF-8') ?></td>
-                            <td style="padding: 12px; color: #6c757d;"><?= htmlspecialchars($data_admin['user_name'], ENT_QUOTES, 'UTF-8') ?></td>
+                            <td style="padding: 12px;"><?= $no_komentar++ ?></td>
+                            <td style="padding: 12px; font-weight: 500;"><?= htmlspecialchars($data_komentar['nama_penulis'], ENT_QUOTES, 'UTF-8') ?></td>
+                            <td style="padding: 12px; color: #6c757d; font-size: 14px;"><?= htmlspecialchars($data_komentar['tanggal_komentar'], ENT_QUOTES, 'UTF-8') ?></td>
+                            <td style="padding: 12px; color: #495057; max-width: 260px; white-space: normal; word-break: break-word;"><?= htmlspecialchars($data_komentar['detail_komentar'], ENT_QUOTES, 'UTF-8') ?></td>
                         </tr>
                         <?php
                             endwhile;
                         else:
                         ?>
                         <tr>
-                            <td colspan="3" style="padding: 20px; text-align: center; color: #6c757d;">Belum ada data admin</td>
+                            <td colspan="4" style="padding: 20px; text-align: center; color: #6c757d;">Belum ada komentar terbaru</td>
                         </tr>
                         <?php endif; ?>
                     </tbody>
