@@ -38,12 +38,13 @@ switch ($status) {
         $nama_admin = $_REQUEST['nama_admin'];
         $user_name = $_REQUEST['user_name'];
         $password_baru = isset($_REQUEST['password']) ? trim($_REQUEST['password']) : '';
+        $redirect_page = isset($_REQUEST['redirect_page']) && $_REQUEST['redirect_page'] !== '' ? $_REQUEST['redirect_page'] : 'admin_tampil';
 
         $cek_username = mysqli_query($koneksi, "SELECT * FROM tb_admin WHERE user_name='$user_name' AND user_name!='$user_name_lama'");
 
         if (mysqli_num_rows($cek_username) > 0) {
             $_SESSION['swal'] = ['icon' => 'error', 'title' => 'Gagal!', 'text' => 'Username admin sudah digunakan.'];
-            echo "<script>window.location='index.php?page=admin_tampil';</script>";
+            echo "<script>window.location='index.php?page=$redirect_page';</script>";
             exit;
         }
 
@@ -66,10 +67,10 @@ switch ($status) {
 
             catat_aktivitas($koneksi, $_SESSION['nama_admin'], "Mengedit admin: $nama_admin");
             $_SESSION['swal'] = ['icon' => 'success', 'title' => 'Berhasil!', 'text' => 'Data admin berhasil diubah.'];
-            echo"<script>window.location='index.php?page=admin_tampil';</script>";
+            echo"<script>window.location='index.php?page=$redirect_page';</script>";
         } else {
             $_SESSION['swal'] = ['icon' => 'error', 'title' => 'Gagal!', 'text' => 'Data admin gagal diubah.'];
-            echo"<script>window.location='index.php?page=admin_tampil';</script>";
+            echo"<script>window.location='index.php?page=$redirect_page';</script>";
         }
     break;
 

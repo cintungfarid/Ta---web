@@ -14,17 +14,8 @@ if ($hasStatusColumn && mysqli_num_rows($hasStatusColumn) > 0) {
 ?>
 
 <div class="sidebar-header">
-    <div class="admin-profile">
-        <div class="profile-avatar">
-            <svg class="profile-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
-                <path d="M5 20C5 16.134 8.134 13 12 13C15.866 13 19 16.134 19 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-        </div>
-        <div class="profile-info">
-            <span class="admin-name"><?php echo $_SESSION['nama_admin']; ?></span>
-            <span class="admin-role">Admin</span>
-        </div>
+    <div class="sidebar-brand">
+        <img src="../uploads/Teks paragraf Anda (2).png" alt="Logo Admin" class="sidebar-brand-image">
     </div>
 
     <div class="comment-notification-panel">
@@ -77,22 +68,18 @@ if ($hasStatusColumn && mysqli_num_rows($hasStatusColumn) > 0) {
                 </span>
             </a>
         </li>
-        <li>
-            <a href="index.php?page=admin_tampil">
-                <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.98 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="currentColor"/>
-                </svg>
-                Kelola Admin
-            </a>
-        </li>
     </ul>
 
-    <div class="sidebar-logout">
-        <a href="#" onclick="confirmLogout(event)" class="logout-btn-sidebar">
-            <svg class="logout-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" fill="currentColor"/>
+    <div class="admin-profile sidebar-admin-profile">
+        <div class="profile-avatar">
+            <svg class="profile-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
+                <path d="M5 20C5 16.134 8.134 13 12 13C15.866 13 19 16.134 19 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
-            Logout
-        </a>
+        </div>
+        <div class="profile-info">
+            <span class="admin-name"><?php echo $_SESSION['nama_admin']; ?></span>
+            <span class="admin-role">Admin</span>
+        </div>
     </div>
 </div>

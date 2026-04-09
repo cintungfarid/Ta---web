@@ -36,6 +36,66 @@ function formatNotificationDate(value) {
     });
 }
 
+function initProfileMenu() {
+    const trigger = document.getElementById('headerProfileTrigger');
+    const dropdown = document.getElementById('headerProfileDropdown');
+    const modal = document.getElementById('profileModal');
+    const openModalButton = document.getElementById('openProfileModal');
+    const closeModalButtons = document.querySelectorAll('[data-close-profile-modal]');
+
+    if (!trigger || !dropdown || !modal || !openModalButton) {
+        return;
+    }
+
+    function closeDropdown() {
+        dropdown.classList.remove('show');
+        trigger.setAttribute('aria-expanded', 'false');
+    }
+
+    function openModal() {
+        modal.classList.add('show');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        closeDropdown();
+    }
+
+    function closeModal() {
+        modal.classList.remove('show');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    trigger.addEventListener('click', function (event) {
+        event.stopPropagation();
+        const isOpen = dropdown.classList.toggle('show');
+        trigger.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    openModalButton.addEventListener('click', function (event) {
+        event.preventDefault();
+        openModal();
+    });
+
+    closeModalButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            closeModal();
+        });
+    });
+
+    document.addEventListener('click', function (event) {
+        if (!dropdown.contains(event.target) && !trigger.contains(event.target)) {
+            closeDropdown();
+        }
+    });
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            closeDropdown();
+            closeModal();
+        }
+    });
+}
+
 function initCommentNotifications() {
     const trigger = document.getElementById('commentNotificationTrigger');
     const dropdown = document.getElementById('commentNotificationDropdown');
@@ -143,5 +203,6 @@ function initCommentNotifications() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    initProfileMenu();
     initCommentNotifications();
 });
