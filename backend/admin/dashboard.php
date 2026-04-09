@@ -21,14 +21,6 @@ if ($query_komen) {
     }
 }
 
-$query_komentar_terbaru_count = mysqli_query($koneksi, "SELECT COUNT(*) as total FROM (SELECT id_komentar FROM tb_komentar ORDER BY id_komentar DESC LIMIT 5) as komentar_terbaru");
-if ($query_komentar_terbaru_count) {
-    $result = mysqli_fetch_assoc($query_komentar_terbaru_count);
-    if ($result) {
-        $admin = $result['total'];
-    }
-}
-
 $query_log = mysqli_query($koneksi, "SELECT * FROM tb_log_aktivitas ORDER BY waktu DESC");
 $query_komentar_terbaru = mysqli_query($koneksi, "SELECT id_komentar, nama_penulis, tanggal_komentar, detail_komentar FROM tb_komentar ORDER BY id_komentar DESC LIMIT 5");
 ?>
@@ -45,10 +37,6 @@ $query_komentar_terbaru = mysqli_query($koneksi, "SELECT id_komentar, nama_penul
             <h3 style="font-size: 48px; margin: 0; color: #11998e;"><?= $komen ?></h3>
         </div>
 
-        <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center; flex: 1; min-width: 300px;">
-            <h6 style="font-size: 18px; margin-bottom: 15px; color: #666;">Komentar Terbaru</h6>
-            <h3 style="font-size: 48px; margin: 0; color: #11998e;"><?= $admin ?></h3>
-        </div>
     </div>
 </div>
 
