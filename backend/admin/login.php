@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Admin - GameValen</title>
+    <title>Login Admin - Pelarian Timun Mas</title>
+    <link rel="icon" type="image/png" href="../uploads/Teks paragraf Anda (2).png">
     <style>
         * {
             margin: 0;

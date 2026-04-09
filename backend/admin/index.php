@@ -3,7 +3,8 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Admin BOARD GAME</title>
+    <title>Admin - Pelarian Timun Mas</title>
+    <link rel="icon" type="image/png" href="../uploads/Teks paragraf Anda (2).png">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
