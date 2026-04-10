@@ -1,3 +1,5 @@
+const backendBaseUrl = (window.APP_CONFIG && window.APP_CONFIG.backendBaseUrl) || '../backend/';
+
 function initNavToggle() {
     const toggle = document.getElementById('navToggle');
     const menu = document.getElementById('navMenu');
@@ -236,7 +238,7 @@ function loadMerchandise() {
 
     merchandiseGrid.innerHTML = renderStatusMessage('Sedang memuat merchandise...', 'loading-state');
 
-    fetch('../backend/api/get_merchandise.php')
+    fetch(`${backendBaseUrl}api/get_merchandise.php`)
         .then(response => response.json())
         .then(data => {
             if (data.success && data.data.length > 0) {
@@ -244,7 +246,7 @@ function loadMerchandise() {
                 data.data.forEach(merch => {
                     const harga = new Intl.NumberFormat('id-ID').format(merch.harga_merchandise);
                     const judul = escapeHtml(merch.judul_merchandise);
-                    const foto = merch.foto_merchandise ? `../backend/${encodeURI(merch.foto_merchandise)}` : '';
+                    const foto = merch.foto_merchandise ? `${backendBaseUrl}${encodeURI(merch.foto_merchandise)}` : '';
                     const stock = escapeHtml(merch.stock_merchandise);
                     const pesanWa = `Halo, saya tertarik membeli produk *${merch.judul_merchandise}* dengan harga Rp ${harga}. Apakah masih tersedia?`;
                     const linkWa = `https://wa.me/6281914866694?text=${encodeURIComponent(pesanWa)}`;
@@ -282,7 +284,7 @@ function loadComments() {
 
     commentsList.innerHTML = `<h3>Komentar Terbaru</h3>${renderStatusMessage('Sedang memuat komentar...', 'loading-state')}`;
 
-    fetch('../backend/api/get_comments.php?limit=50')
+    fetch(`${backendBaseUrl}api/get_comments.php?limit=50`)
         .then(response => response.json())
         .then(data => {
             if (data.success && data.data.length > 0) {
@@ -342,7 +344,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 submitButton.textContent = 'Mengirim...';
             }
 
-            fetch('../backend/api/comment_submit.php', {
+            fetch(`${backendBaseUrl}api/comment_submit.php`, {
                 method: 'POST',
                 body: formData
             })

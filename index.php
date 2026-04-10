@@ -1,4 +1,3 @@
 <?php
-header("Location: frontend/index.php");
-exit();
+require __DIR__ . '/frontend/index.php';
 ?>

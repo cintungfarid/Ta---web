@@ -1,4 +1,11 @@
-<?php session_start(); ?>
+<?php
+session_start();
+
+if (!isset($_SESSION['user_name'])) {
+    header("Location: login.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -9,20 +16,14 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-    <?php if (isset($_SESSION['user_name'])): ?>
-        <div class="main-wrapper">
-            <div id="kiri">
-                <?php include "menu.php"; ?>
-            </div>
-            <div id="kanan">
-                <?php include "isi.php"; ?>
-            </div>
+    <div class="main-wrapper">
+        <div id="kiri">
+            <?php include "menu.php"; ?>
         </div>
-    <?php else: ?>
-        <div class="login-container">
-            <?php include "login.php"; ?>
+        <div id="kanan">
+            <?php include "isi.php"; ?>
         </div>
-    <?php endif; ?>
+    </div>
     <script src="js/admin.js"></script>
 </body>
 </html>

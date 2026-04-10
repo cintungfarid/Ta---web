@@ -1,11 +1,16 @@
+<?php
+$isServedFromFrontendDir = basename(dirname($_SERVER['SCRIPT_NAME'])) === 'frontend';
+$baseUrl = $isServedFromFrontendDir ? '' : 'frontend/';
+$backendUrl = $isServedFromFrontendDir ? '../backend/' : 'backend/';
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pelarian Timun Mas</title>
-    <link rel="icon" type="image/png" href="asset/Teks paragraf Anda (2).png">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="<?php echo $baseUrl; ?>asset/Teks paragraf Anda (2).png">
+    <link rel="stylesheet" href="<?php echo $baseUrl; ?>css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -13,7 +18,7 @@
     <nav class="navbar">
         <div class="container">
             <div class="nav-logo">
-                <img src="asset/Rule Book TAN.png" alt="Logo Pelarian Timun Mas">
+                <img src="<?php echo $baseUrl; ?>asset/Rule Book TAN.png" alt="Logo Pelarian Timun Mas">
             </div>
             <button class="nav-toggle" id="navToggle" aria-label="Buka menu">
                 <span></span>
@@ -34,7 +39,7 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <div class="hero-logo">
-                <img src="asset/Teks paragraf Anda (2).png" alt="Logo Timun Mas">
+                <img src="<?php echo $baseUrl; ?>asset/Teks paragraf Anda (2).png" alt="Logo Timun Mas">
             </div>
             <h1 class="hero-title">PELARIAN TIMUN MAS</h1>
             <p class="hero-description">Petualangan seru dalam dunia board game. Bantu Timun Mas melarikan diri kejaran sang Buto Ijo!</p>
@@ -46,7 +51,7 @@
             <h2 class="section-title">About</h2>
             <div class="about-card">
                 <div class="about-image">
-                    <img src="asset/WhatsApp Image 2026-02-02 at 11.19.54.jpeg" alt="Valensia Chiko Varianto">
+                    <img src="<?php echo $baseUrl; ?>asset/WhatsApp Image 2026-02-02 at 11.19.54.jpeg" alt="Valensia Chiko Varianto">
                 </div>
                 <div class="about-content">
                     <h3>VALENSIA CHIKO VARIANTO</h3>
@@ -64,13 +69,13 @@
             <div class="game-grid">
                 <div class="game-card">
                     <div class="game-image">
-                        <img src="asset/Papan.png" alt="Pelarian Timun Mas">
+                        <img src="<?php echo $baseUrl; ?>asset/Papan.png" alt="Pelarian Timun Mas">
                     </div>
                     <div class="game-content">
                         <h3>Pelarian Timun Mas</h3>
                         <p class="game-date"><i class="fas fa-users"></i> 2 Pemain | <i class="far fa-clock"></i> 15-20 Menit</p>
                         <p class="game-desc">Board game petualangan yang menceritakan kisah klasik Indonesia. Bantu Timun Mas melarikan diri dari kejaran Buto Ijo menggunakan item-item magis seperti terasi, garam, jarum, dan mentimun. Pemain pertama yang mencapai tempat aman adalah pemenangnya!</p>
-                        <a href="pages/cara_bermain.php" class="btn btn-primary">Cara Bermain</a>
+                        <a href="<?php echo $baseUrl; ?>pages/cara_bermain.php" class="btn btn-primary">Cara Bermain</a>
                     </div>
                 </div>
             </div>
@@ -90,7 +95,7 @@
         <div class="container">
             <h2 class="section-title">Tinggalkan Komentar</h2>
             <div class="comment-wrapper">
-                <form action="../backend/api/comment_submit.php" method="POST" class="comment-form">
+                <form action="<?php echo $backendUrl; ?>api/comment_submit.php" method="POST" class="comment-form">
                     <div class="form-group">
                         <label for="nama">Nama Anda</label>
                         <input type="text" id="nama" name="nama_penulis" placeholder="Masukkan nama Anda" required>
@@ -129,6 +134,11 @@
         </div>
     </div>
 
-    <script src="js/main.js"></script>
+    <script>
+        window.APP_CONFIG = {
+            backendBaseUrl: <?php echo json_encode($backendUrl); ?>
+        };
+    </script>
+    <script src="<?php echo $baseUrl; ?>js/main.js"></script>
 </body>
 </html>
