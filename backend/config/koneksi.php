@@ -1,8 +1,8 @@
 <?php
 $server = "localhost";
-$username = "root";
-$password = "";
-$database = "db_gamevalen";
+$username = "pplgrolas_0085661301";
+$password = "0085661301";
+$database = "pplgrolas_0085661301";
 
 $koneksi = mysqli_connect($server, $username, $password, $database);
 

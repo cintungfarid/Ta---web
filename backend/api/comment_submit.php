@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             echo "<script>
                     alert('Komentar berhasil dikirim! Terima kasih atas feedback Anda.');
-                    window.location.href = '../../frontend/index.php#contact';
+                    window.location.href = '../../index.php#contact';
                   </script>";
         }
     } else {
@@ -50,12 +50,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             echo "<script>
                     alert('Gagal mengirim komentar. Silakan coba lagi.');
-                    window.location.href = '../../frontend/index.php#contact';
+                    window.location.href = '../../index.php#contact';
                   </script>";
         }
     }
 } else {
-    header("Location: ../../frontend/index.php");
+    header("Location: ../../index.php");
     exit();
 }
 ?>
